@@ -1,49 +1,766 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html {
-  height: 100%;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/* =========================================================
+   1. GLOBAL RESET
+========================================================= */
 
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
+
+
+/* =========================================================
+   2. HTML SETTINGS
+========================================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* =========================================================
+   3. BODY / PAGE DEFAULT STYLING
+========================================================= */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f7f9fc;
+  color: #1f2937;
+}
+
+
+/* =========================================================
+   4. GLOBAL LINK STYLING
+========================================================= */
 
 a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+
+/* =========================================================
+   5. NAVIGATION BAR
+========================================================= */
+
+nav {
+  width: 100%;
+  padding: 22px 8%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav strong {
+  font-size: 1.4rem;
+  color: #1f3a5f;
+}
+
+nav div:last-child {
+  display: flex;
+  gap: 26px;
+}
+
+nav a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #374151;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #2563eb;
+}
+
+
+/* =========================================================
+   6. HERO SECTION
+========================================================= */
+
+main > section:first-of-type {
+  min-height: calc(100vh - 75px);
+
+  padding: 120px 8%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  max-width: 1050px;
+}
+
+main > section:first-of-type h1 {
+  font-size: 4rem;
+  color: #111827;
+  margin-bottom: 18px;
+}
+
+main > section:first-of-type h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #4b5563;
+  margin-bottom: 24px;
+}
+
+main > section:first-of-type p {
+  max-width: 760px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #5b6472;
+  margin-bottom: 32px;
+}
+
+
+/* =========================================================
+   7. HERO BUTTONS
+========================================================= */
+
+main > section:first-of-type div {
+  display: flex;
+  gap: 16px;
+}
+
+main > section:first-of-type div a {
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+main > section:first-of-type div a:first-child {
+  background: #1f3a5f;
+  color: white;
+}
+
+main > section:first-of-type div a:first-child:hover {
+  background: #172b46;
+}
+
+main > section:first-of-type div a:last-child {
+  border: 1px solid #1f3a5f;
+  color: #1f3a5f;
+  background: white;
+}
+
+main > section:first-of-type div a:last-child:hover {
+  background: #eef3f8;
+}
+
+
+/* =========================================================
+   8. ALL OTHER MAIN SECTIONS
+========================================================= */
+
+main > section:not(:first-of-type) {
+  min-height: calc(100vh - 75px);
+
+  padding: 100px 8%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  scroll-margin-top: 75px;
+}
+
+
+/* =========================================================
+   9. GENERAL SECTION HEADINGS
+========================================================= */
+
+main > section:not(:first-of-type) > h2 {
+  font-size: 2.2rem;
+  color: #111827;
+  margin-bottom: 32px;
+}
+
+
+/* =========================================================
+   10. GENERAL PARAGRAPH STYLING
+========================================================= */
+
+p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #5b6472;
+}
+
+
+/* =========================================================
+   11. ABOUT SECTION
+========================================================= */
+
+#about {
+  background: white;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+#about p {
+  max-width: 820px;
+  margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   12. PROFESSIONAL EXPERIENCE SECTION
+========================================================= */
+
+#experience {
+  background: #f7f9fc;
+}
+
+#experience > div {
+  max-width: 850px;
+
+  background: white;
+
+  padding: 30px;
+  margin-bottom: 22px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+#experience > div:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+}
+
+#experience h3 {
+  font-size: 1.3rem;
+  color: #1f3a5f;
+  margin-bottom: 12px;
+}
+
+#experience p {
+  max-width: 780px;
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   13. PROJECTS SECTION
+========================================================= */
+
+#projects {
+  background: white;
+}
+
+
+/* =========================================================
+   14. STANDARD PROJECT CARD
+========================================================= */
+
+.project-card {
+  position: relative;
+
+  max-width: 900px;
+
+  background: #f7f9fc;
+
+  padding: 30px;
+  margin-bottom: 24px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+.project-card h3 {
+  font-size: 1.3rem;
+  color: #1f3a5f;
+  margin-bottom: 12px;
+}
+
+.project-card p {
+  max-width: 820px;
+  margin-bottom: 16px;
+}
+
+.project-card span {
+  display: block;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  color: #6b7280;
+}
+
+
+/* =========================================================
+   15. PROJECT LINKS
+========================================================= */
+
+.project-card a {
+  display: inline-block;
+
+  margin-top: 18px;
+
+  color: #1f3a5f;
+
+  font-weight: 700;
+
+  transition: color 0.2s ease;
+}
+
+.project-card a:hover {
+  color: #2563eb;
+}
+
+
+/* =========================================================
+   16. FEATURED / STAR PROJECT
+   Brant Hospital Emergency OR Project
+========================================================= */
+
+.featured-project {
+  background: #f8fbff;
+
+  border: 2px solid #1f3a5f;
+
+  padding-top: 62px;
+
+  box-shadow: 0 12px 30px rgba(31, 58, 95, 0.08);
+}
+
+.featured-project:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 15px 36px rgba(31, 58, 95, 0.14);
+}
+
+.featured-project h3 {
+  font-size: 1.5rem;
+}
+
+.featured-badge {
+  position: absolute;
+
+  top: 20px;
+  left: 28px;
+
+  display: inline-block;
+
+  padding: 7px 14px;
+
+  background: #1f3a5f;
+  color: white;
+
+  border-radius: 20px;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   17. EDUCATION & CREDENTIALS SECTION
+========================================================= */
+
+#education {
+  background: #f7f9fc;
+}
+
+
+/* =========================================================
+   18. EDUCATION CARD
+========================================================= */
+
+.education-card {
+  max-width: 900px;
+
+  background: white;
+
+  padding: 32px;
+  margin-bottom: 26px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.education-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+}
+
+.education-card h3 {
+  font-size: 1.4rem;
+  color: #1f3a5f;
+  margin-bottom: 10px;
+}
+
+.education-card p {
+  max-width: 820px;
+  margin-bottom: 14px;
+}
+
+.education-card span {
+  display: block;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  color: #6b7280;
+
+  margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   19. CERTIFICATION CARDS
+========================================================= */
+
+.certification-card {
+  max-width: 900px;
+
+  background: white;
+
+  padding: 28px;
+  margin-bottom: 18px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.certification-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+}
+
+.certification-card h3 {
+  font-size: 1.22rem;
+  color: #1f3a5f;
+  margin-bottom: 10px;
+}
+
+.certification-card p {
+  max-width: 820px;
+  margin-bottom: 12px;
+}
+
+.certification-card span {
+  display: block;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  color: #6b7280;
+}
+
+
+/* =========================================================
+   20. RESUME SECTION
+========================================================= */
+
+#resume {
+  background: white;
+}
+
+#resume p {
+  max-width: 750px;
+}
+
+
+/* =========================================================
+   21. CONTACT SECTION
+========================================================= */
+
+#contact {
+  background: #f7f9fc;
+}
+
+#contact p {
+  max-width: 750px;
+}
+
+
+/* =========================================================
+   22. PROJECT DETAIL PAGE
+========================================================= */
+
+.project-page {
+  min-height: 100vh;
+
+  background: #f7f9fc;
+
+  padding: 50px 8% 100px;
+}
+
+.back-link {
+  display: inline-block;
+
+  margin-bottom: 40px;
+
+  color: #1f3a5f;
+
+  font-weight: 600;
+}
+
+.back-link:hover {
+  color: #2563eb;
+}
+
+.project-detail {
+  max-width: 950px;
+
+  margin: 0 auto;
+
+  background: white;
+
+  padding: 60px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+}
+
+.project-label {
+  margin-bottom: 14px;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  color: #2563eb;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.project-detail h1 {
+  font-size: 3rem;
+
+  color: #111827;
+
+  margin-bottom: 20px;
+}
+
+.project-intro {
+  max-width: 800px;
+
+  font-size: 1.2rem;
+
+  margin-bottom: 50px;
+}
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 40px;
+}
+
+.project-info > div {
+  border-top: 1px solid #e5e7eb;
+
+  padding-top: 28px;
+}
+
+.project-info h2 {
+  font-size: 1.5rem;
+
+  color: #1f3a5f;
+
+  margin-bottom: 14px;
+}
+
+.project-info p {
+  max-width: 800px;
+
+  margin-bottom: 0;
+}
+
+.project-info ul {
+  padding-left: 22px;
+
+  color: #5b6472;
+
+  line-height: 1.9;
+}
+
+.project-info li {
+  margin-bottom: 6px;
+}
+
+
+/* =========================================================
+   23. MOBILE / TABLET RESPONSIVE DESIGN
+========================================================= */
+
+@media (max-width: 768px) {
+
+  /* ------------------------------
+     Navigation
+  ------------------------------ */
+
+  nav {
+    padding: 18px 5%;
   }
+
+  nav strong {
+    font-size: 1.2rem;
+  }
+
+  nav div:last-child {
+    display: none;
+  }
+
+
+  /* ------------------------------
+     Hero
+  ------------------------------ */
+
+  main > section:first-of-type {
+    min-height: calc(100vh - 65px);
+
+    padding: 80px 5%;
+  }
+
+  main > section:first-of-type h1 {
+    font-size: 2.8rem;
+  }
+
+  main > section:first-of-type h2 {
+    font-size: 1.2rem;
+  }
+
+  main > section:first-of-type p {
+    font-size: 1rem;
+  }
+
+  main > section:first-of-type div {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+
+  /* ------------------------------
+     Other Sections
+  ------------------------------ */
+
+  main > section:not(:first-of-type) {
+    min-height: calc(100vh - 65px);
+
+    padding: 60px 5%;
+
+    scroll-margin-top: 65px;
+  }
+
+  main > section:not(:first-of-type) > h2 {
+    font-size: 1.8rem;
+  }
+
+
+  /* ------------------------------
+     Cards
+  ------------------------------ */
+
+  #experience > div,
+  .project-card,
+  .education-card,
+  .certification-card {
+    width: 100%;
+
+    padding: 22px;
+  }
+
+
+  /* ------------------------------
+     Featured Project
+  ------------------------------ */
+
+  .featured-project {
+    padding-top: 58px;
+  }
+
+  .featured-project h3 {
+    font-size: 1.3rem;
+  }
+
+  .featured-badge {
+    left: 22px;
+
+    font-size: 0.7rem;
+  }
+
+
+  /* ------------------------------
+     Project Detail Page
+  ------------------------------ */
+
+  .project-page {
+    padding: 30px 5% 60px;
+  }
+
+  .project-detail {
+    padding: 30px 22px;
+  }
+
+  .project-detail h1 {
+    font-size: 2.2rem;
+  }
+
+  .project-intro {
+    font-size: 1.05rem;
+  }
+  /* =========================================================
+   RESUME BUTTON
+========================================================= */
+
+.resume-button {
+  display: inline-block;
+  width: fit-content;
+
+  margin-top: 24px;
+  padding: 12px 22px;
+
+  background: #1f3a5f;
+  color: white;
+
+  border-radius: 8px;
+
+  font-weight: 600;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.resume-button:hover {
+  background: #172b46;
+  transform: translateY(-2px);
+}
 }
