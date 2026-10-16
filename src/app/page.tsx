@@ -15,7 +15,6 @@ export default function Home() {
           <a href="#experience">Experience</a>
           <a href="#projects">Projects</a>
           <a href="#education">Education & Credentials</a>
-          <a href="#resume">Resume</a>
           <a href="#contact">Contact</a>
         </div>
       </nav>
@@ -40,14 +39,6 @@ export default function Home() {
 
         <div>
           <a href="#projects">View Projects</a>
-
-          <a
-            href="/resume/Saira_Khan_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View Resume
-          </a>
         </div>
       </section>
 
@@ -388,29 +379,6 @@ export default function Home() {
       </section>
 
       {/* =====================================================
-          RESUME SECTION
-      ====================================================== */}
-
-      <section id="resume">
-        <h2>Resume</h2>
-
-        <p>
-          View my resume for more information about my experience in digital
-          health, systems analysis, AI, cloud technologies, software
-          development, and financial services.
-        </p>
-
-        <a
-          className="resume-button"
-          href="/resume/Saira_Khan_Resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          View Resume →
-        </a>
-      </section>
-
-      {/* =====================================================
           CONTACT SECTION
       ====================================================== */}
 
@@ -420,6 +388,10 @@ export default function Home() {
         <p>
           Interested in connecting or discussing an opportunity? Feel free to
           reach out through LinkedIn, GitHub, or email.
+        </p>
+
+        <p>
+          Resume available upon request.
         </p>
       </section>
     </main>
